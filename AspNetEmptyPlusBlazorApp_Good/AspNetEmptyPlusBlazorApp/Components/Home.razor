@@ -1,0 +1,9 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<h4>Home component</h4>
+<About @bind-Age="age" />
+
+@code {
+    private int age = 5;
+}

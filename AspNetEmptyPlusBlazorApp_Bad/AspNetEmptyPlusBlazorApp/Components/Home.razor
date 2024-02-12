@@ -1,0 +1,16 @@
+﻿
+@page "/"
+@rendermode InteractiveServer
+
+<h4>Home component</h4>
+<About @bind-Age="age" />
+
+@code {
+  private int age { get; set; } = 5;
+
+  private async Task OnAgeChanged(int value)
+  {
+    if (value > 0 && value < 110)
+      age = value;
+  }
+}

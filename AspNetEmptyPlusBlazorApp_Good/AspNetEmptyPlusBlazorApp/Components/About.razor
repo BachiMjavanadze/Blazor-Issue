@@ -1,0 +1,20 @@
+﻿<h4>About component</h4>
+
+<input type="number" @bind:get="Age" @bind:set="OnAgeChanged" />
+<h2>Age: @Age</h2>
+
+@code {
+    [Parameter]
+    public int Age { get; set; }
+
+    [Parameter]
+    public EventCallback<int> AgeChanged { get; set; }
+
+    private async Task OnAgeChanged(int value)
+    {
+        if (value > 0 && value < 110)
+            Age = value;
+
+        await AgeChanged.InvokeAsync(Age);
+    }
+}
